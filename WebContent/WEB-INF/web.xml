@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:jsp="http://java.sun.com/xml/ns/javaee/jsp" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
   <display-name>DependentDropDownsTag</display-name>
   <welcome-file-list>
     <welcome-file>index.html</welcome-file>
@@ -9,4 +9,34 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <jsp-config>
+    <taglib>
+      <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+      <taglib-location>/WEB-INF/tld/c.tld</taglib-location>
+    </taglib>
+    <taglib>
+      <taglib-uri>dddtags</taglib-uri>
+      <taglib-location>/WEB-INF/tld/dddtags.tld</taglib-location>
+    </taglib>
+  </jsp-config>
+  <servlet>
+    <description></description>
+    <display-name>DataPopulatingServlet</display-name>
+    <servlet-name>DataPopulatingServlet</servlet-name>
+    <servlet-class>com.depdropdowntag.servlets.DataPopulatingServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DataPopulatingServlet</servlet-name>
+    <url-pattern>/populateData</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GatherDataServlet</display-name>
+    <servlet-name>GatherDataServlet</servlet-name>
+    <servlet-class>com.depdropdowntag.servlets.GatherDataServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GatherDataServlet</servlet-name>
+    <url-pattern>/gathervalues</url-pattern>
+  </servlet-mapping>
 </web-app>
